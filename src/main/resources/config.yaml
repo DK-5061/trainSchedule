@@ -1,0 +1,22 @@
+kumuluzee:
+  name: trainSchedule
+  service-name: train-schedule
+  version: 1.0-SNAPSHOT
+  env:
+    name: dev
+  server:
+    http:
+      port: 8080
+  datasources:
+    - jndi-name: jdbc/TrainScheduleDS
+      connection-url: jdbc:postgresql://localhost:5432/train_schedule
+      username: postgres
+      password: postgres
+      pool:
+        max-size: 20
+  discovery:
+    consul:
+      agent: http://localhost:8500
+      hosts: http://localhost:8500
+    ttl: 20
+    ping-interval: 15
